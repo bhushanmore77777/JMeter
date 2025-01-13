@@ -1,0 +1,17 @@
+******LOGIC CONTROLLERS******
+-logic controllers let you handle the order of processing samplers/requests in a thread
+-logic controllers will decide when & how to send a request to a web driver
+-Loop controller makes the user request run a specified number of times or run forever
+******Workflow of controllers******
+1.Run user req 1st time
+2.Run user req 2nd time
+3.Run user req 3rd time
+4.Run user req 4th time
+5.Run user req 100 times
+6.Make user request run forever
+Simple Controller=-it does not perform any activities
+                  -it is just controller
+                  -contains multiple request
+                  -used for grouping request
+
+Modular Controller=-single/multiple request multiple times

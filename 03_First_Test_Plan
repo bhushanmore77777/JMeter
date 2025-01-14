@@ -1,0 +1,8 @@
+1.Start JMeter
+2.Create a Test Plan
+3.Create a Thread Group(Users)
+4.Create a Sampler(Http)
+5.Add a Sampler
+6.Add Listeners
+7.Run Test Plan
+8.Save Test Plan

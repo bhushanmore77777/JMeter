@@ -1,0 +1,48 @@
+1.With 5 users,all users are hitting server at a same time 
+2.User are Visiting 3 pages
+3.Before going to each of the page,we need to have some waiting time
+4.My URL could be change in future(Keep in mind)
+5.Generate tabular report and graph as well
+
+
+
+1.Create Test Plan
+  -Test Plan-->Add-->Threads(Users)-->Thread Group
+  -Thread Group-->Name-->Test Case1
+
+2.User are visiting 3 pages 
+  -Create 3 Samplers
+  -Test Case 1-->Samplers-->HttpRequest(Name=Req1)
+  -Test Case 1-->Samplers-->HttpRequest(Name=Req2)
+  -Test Case 1-->Samplers-->HttpRequest(Name=Req3)
+
+   1.In Req1=server name/IP=www.thetestingworld.com
+     //we are visiting homepage by using 1st req
+   2.In Req2=server name/IP=www.thetestingworld.com/sql-testers
+     //we are visiting sql testers
+   3.In Req3=server name/IP=www.thetestingworld.com/linux-testers
+    //we are visiting linux testers
+
+3.My URL can be change in future
+   Test Case 1-->Add-->Config Element-->HTTP Request Defaults
+   In HTTP Request Defaults-->server name/IP=www.thetestingworld.com(Add Base URL)
+   1.In Req.1-->server name/IP=make empty because we have already enter same URL in HTTP Request Defaults
+      path=/
+   2.In Req2.-->server name/IP=empty
+      path=/sql-testers
+   3.In Req3.-->server name/IP=empty
+      path=/linux-testers
+
+4.Before going to each of the page,we need to have some waiting time
+  -when user is in 1st page-->after that if user is going in 2nd page there will be some delay time
+  -Timer has more priority than samplers
+  -In Req2 Req2-->Timer-->Constant Timer(3000ms)
+   //first Req1 will be hit then timer then Req2
+  -Req3-->Timer-->Constant Timer(3000ms)
+
+5.Generate Tabular Report and graph as well
+  
+  Test Case 1-->Listener-->View Results in Tree
+  Test Case 1-->Listener-->View Results in Table
+  Test Case 1-->Listener-->Aggregate Graph
+

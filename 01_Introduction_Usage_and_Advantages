@@ -1,0 +1,55 @@
+-Java Based Application
+-Open source
+-Used for Performance Testing(Load/Stress/volume)
+-Used for API testing/database server test
+
+******WORKFLOW OF JMETER******
+1.Create request to target server
+2.Server responds
+3.Saves all responses
+4.Collect and calculate statistical info
+5.Test Report
+
+*****JMeter Elements*****
+Thread Group=-Collection of Threads
+             -e.g if you set number of threads as 100 JMeter will create and simulate 100 user requests to the server under test
+1.Samplers=-Different type of requests send by Thread Group
+           1.FTP Request
+           2.HTTP Request
+           3.JDBC Request
+           4.BSF Request
+           5.Access Log Sampler
+           6.SMTP Sampler
+
+2.Listeners=-shows the result of execution
+            1.Graph=-display server responses times
+            2.View Result Tree=-HTML Format
+            3.Table Result=-Table Format
+            4.Log=-Text File
+
+3.Configuration Elements=-set up defaults and variables for later use by samplers
+                         1.CSV Data Set Config
+                         2.HTTP Cookie Manager
+                         3.Login Config Element
+                         4.HTTP Request Defaults
+                         5.FTP Request Defaults
+
+4.Timers=-JMeter sends requests without applying any delay between each sampler/request
+         -If you perform load/stress testing on your server without any delay,it will be 
+           overloaded,Then it won't be able to give you realistic results and fail to simulate 
+           real world user traffic experience
+         -solution->Timers
+         -Timer Element can be added in a test plan to apply wait between each sampler/request
+         1.Contant Timer
+         2.Uniform Random Timer
+         3.Gaussian Random Timer
+         4.Bean Shell Timer
+         5.BSF Timer
+         6.JSR223 Timer
+      -Uniform Random Timer
+        1.Random delay max
+        2.Constant delay offset
+           0.X*Random delay max+Constant delay offset
+             X->0-9
+            e.g 0.X*100+0
+                 0.99ms

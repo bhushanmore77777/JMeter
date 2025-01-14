@@ -15,3 +15,28 @@ Simple Controller=-it does not perform any activities
                   -used for grouping request
 
 Modular Controller=-single/multiple request multiple times
+Random Controllers=-It will just give one sampler as a result out of all
+                   -e.g Thread Group-->Controllers      -----Result-----
+                                        Samplers
+                                        Java Req.1         Java Req.1 
+                                        Java Req.2         Java Req.2
+                                        Java Req.3         Java Req.3
+                                        Java Req.4         Java Req.4
+                                        Java Req.5         Java Req.5
+
+                   -Using Random Controllers
+                   -e.g Thread Group-->Controllers      -----Result-----
+                                        Samplers
+                                        Java Req.1         Java Req.1 
+                                        Java Req.2         Java Req.2
+                                        Java Req.3         Java Req.5
+                                        Java Req.4        
+                                        Java Req.5         
+Random Order Controller=-It will give all samplers in results but in random order
+                         -e.g Thread Group-->Controllers      -----Result-----
+                                        Samplers
+                                        Java Req.1         Java Req.1 
+                                        Java Req.2         Java Req.2
+                                        Java Req.3         Java Req.5
+                                        Java Req.4         Java Req.3
+                                        Java Req.5         Java Req.4

@@ -23,9 +23,9 @@
    1.In Req1=server name/IP=www.thetestingworld.com
      //we are visiting homepage by using 1st req
    2.In Req2=server name/IP=www.thetestingworld.com/jmeter-tutorial
-     //we are visiting sql testers
+     //we are visiting jmeter-tutorial
    3.In Req3=server name/IP=www.thetestingworld.com/soapUI
-    //we are visiting linux testers
+    //we are visiting soapUI
 
 3.My URL can be change in future
    Test Case 1-->Add-->Config Element-->HTTP Request Defaults
@@ -37,15 +37,18 @@
    3.In Req3.-->server name/IP=empty
       path=/soapUI
 
-4.Before going to each of the page,we need to have some waiting time
-  -when user is in 1st page-->after that if user is going in 2nd page there will be some delay time
-  -Timer has more priority than samplers
-  -In Req2 Req2-->Timer-->Constant Timer(3000ms)
-   //first Req1 will be hit then timer then Req2
-  -Req3-->Timer-->Constant Timer(3000ms)
+4.All users are hitting all pages at same time
+  //use Synchronizing Timer
+  Test Case 2-->Add-->Timer-->Synchronizing Timer
+  In Synchoronizing Timer=no.of users=10
 
-5.Generate Tabular Report and graph as well
+5.Verify all request should perform its task within 5 seconds else make it fail with reason
+  //Make assertion on Test Case Level
+  //All the response should be come within 5 sec
+  Test Case 2-->Add-->Assertion-->Response Assertion
+   In Response Assertion-->click Text Response-->should not contains-->Put ERROR WARNING
+6.Generate Tabular Report and graph as well
   
-  Test Case 1-->Listener-->View Results in Tree
-  Test Case 1-->Listener-->View Results in Table
-  Test Case 1-->Listener-->Aggregate Graph
+  Test Case 2-->Listener-->View Results in Tree
+  Test Case 2-->Listener-->View Results in Table
+  Test Case 2-->Listener-->Aggregate Graph

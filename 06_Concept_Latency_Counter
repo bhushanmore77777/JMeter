@@ -1,0 +1,54 @@
+Latency=-within how much time website responds
+Counter=e.g If there are 10 courses if we move to course 1
+        -url will be /course/1
+        -if we have to check all courses that will cause repetation
+        -here we make user defined variable courseNumber
+        -here counter used-->counter start(from where we have to starts)
+                             Increment=1
+                             Maximum=10 upto 10
+Sampler(HTTP Request)-->Add-->Config Element-->User defined variables
+In User Define Variables-->Add
+ Name         Value
+courseNumber  1
+In HTTP Request/sampler
+path=/course/${courseNumber}
+In HTTP Request(course1)(Test Case 1)-->Add-->config element-->counter
+
+******Template******
+-Used for performing activity again and again
+
+******Think Time******
+-e.g Time required for filling login form
+
+******Pacing******
+-Time between iterations
+-e.g we have to make 500 FundTransfer with 50 users in 1hr(60min)
+-50-->50 FundTransfer--->2 min
+-50-->50 FundTransfer--->2 min
+-50-->50 FundTransfer--->2 min
+-50-->50 FundTransfer--->2 min
+-50-->50 FundTransfer--->2 min
+-50-->50 FundTransfer--->2 min
+-50-->50 FundTransfer--->2 min
+-50-->50 FundTransfer--->2 min
+-50-->50 FundTransfer--->2 min
+-50-->50 FundTransfer--->2 min
+-50 FundTransfer*10 iterations=500 FundTransfer
+-Pacing=2min*10iterations=20min and remaining=60min-20min=40 min
+-pacing=40min
+-we have to divide that 40 min and used in between iterations
+-if we cannot do it will achieve 500(20min)+500(20min)+500(20min)=1500(60min)
+-it is ok in stress test
+-in load test it is not ok
+
+
+Launch
+(Think Time)
+Login
+(Think Time)
+click FT menu
+(Think Time)
+Enter OTP submit
+(Think Time)
+Logoff
+

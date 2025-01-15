@@ -1,0 +1,8 @@
+1.We have capture and now we have to passed
+2.We have to passed signIn sampler
+3.click on login in signIn sampler
+4.Make      Name                   Value
+       _txt_Session_Id          ${Dyn_SessionID}
+       csrf_token               ${Dyn_csrf}
+5.Test Plan------>Add------>HTTP Cookie Manager
+  Test Plan------>Add------>HTTP Cache Manager

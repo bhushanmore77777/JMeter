@@ -1,0 +1,34 @@
+******CORRELATION******
+-Making SessionID dynamic
+-Because if we cannot make sessionid dynamic it will not give response after login in test script
+-Correlation is the process of capturing sessionid dynamically and passing to test script
+
+******How to capture?******
+_txt_Session_id="tw-4589414655wor"
+<input type="hidden" name="_txt_Session_id" value="tw-4589414655wor">
+<input type="hidden" name="_txt_Session_id" value="------>Left Boundary
+">------>Right Boundary
+-capturing by RegExp Extractor
+-<input type="hidden" name="_txt_Session_id" value="(.*?)">
+-(.*?)-->capturing any value
+
+-we are capturing sessionid in login so we have to insert RegExp in Login
+-In Login Sampler
+     -Login Sampler-->Add-->Post Processor-->RegExp Extractor
+-In RegExp Extractor
+  1.Put our RegExp in Regular Expression
+  2.Name of created variable=Dyn-SessionID------>we can give any name here
+  3.Template (group number)=$1$------>because we are creating 1 group i.e ()------>(.*?)
+
+******How to see our RegExp capturing correct value?******
+1.Go in View Results Tree
+2.Login(Sampler)----->/login.php------>select Text------>RegExp tester------>Test
+3.Match No=1------>if we do not give 1 it will take 1
+
+*******Follow same for csrf token******
+-<input type="hidden" name="csrf_token" value="(.*?)">
+-Add one more RegExpExtractor 
+-Name of created variable=Dyn_csrf
+
+******Debug sampler******
+-whatever variables we are capturing that will be reflect here

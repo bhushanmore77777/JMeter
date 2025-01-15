@@ -1,0 +1,7 @@
+-Whenever we are visiting website for the first time then we hit the request to
+ server and we get the response from server
+-In that it will store response like fonts,css whatever looking in the page in
+ the form of cache in localstorage
+-if we hit the request 2nd time then server will not give response 
+ localstorage will give response and it will be faster than 1st
+-so it is quick
